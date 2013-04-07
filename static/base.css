@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	background-color: #ffffff;
+	font-family: sans-serif;
+	margin: 0px;
+	padding: 8px;
+	color: #000000;
+}
+
+#header {
+  text-align: center;
+	font-size: 20px;
+	letter-spacing: 10px;
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
+
+#wrapper {
+  width: 100%;
+}
+
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+
+#form_wrapper {
+  margin-top: 10px;
+  width: 100%;
+}
+
+#input_wrapper {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#http_prefix {
+  vertical-align: middle;
+}
+
+#go_button {
+  width: 50px;
+  vertical-align: middle;
+}
+
+#url_entry {
+  width: 375px;
+  border: 1px dashed black;
+  padding: 3px;
+  margin-left: 3px;
+  margin-right: 10px;
+	font-family: arial,helvetica,sans-serif;
+	font-weight: normal;
+	color: #959595;
+	font-size: 14px;
+}
+
+#warning {
+  font-size: 10px;
+  margin-top: 20px;
+  letter-spacing: 3px;
+  color: #7f7f7f;
+}
+
+#recent {
+	margin-top: 50px;
+}
+
+#recent_entries {
+  margin-left: 20px;
+}
+
+.url_container {
+	margin-top: 3px;
+	padding-left: 5px;
+}
+
+.info {
+	font-family: sans-serif;
+	font-size: 10px;
+	color: #606060;
+	margin-left: 5px;
+}
+
+.url {
+	font-size: 12px;
+}
+
+.url1 { color: #000000 !important; }
+.url2 { color: #0a0a0a !important; }
+.url3 { color: #151515 !important; }
+.url4 { color: #1f1f1f !important; }
+.url5 { color: #2a2a2a !important; }
+.url6 { color: #353535 !important; }
+.url7 { color: #3f3f3f !important; }
+.url8 { color: #4a4a4a !important; }
+.url9 { color: #555555 !important; }
+.url10 { color: #5f5f5f !important; }
+.url11 { color: #6a6a6a !important; }
+.url12 { color: #757575 !important; }
+.url13 { color: #7f7f7f !important; }
+.url14 { color: #8a8a8a !important; }
+.url15 { color: #959595 !important; }
+.url16 { color: #9f9f9f !important; }
+.url17 { color: #aaaaaa !important; }
+.url18 { color: #b5b5b5 !important; }
+.url19 { color: #bfbfbf !important; }
+.url20 { color: #cacaca !important; }
+.url21 { color: #d5d5d5 !important; }
+.url22 { color: #dfdfdf !important; }
+.url23 { color: #eaeaea !important; }
+.url24 { color: #f5f5f5 !important; }
+.url25 { color: #ffffff !important; }
+
+/* secure link */
+.secure {
+  text-align: center;
+  margin-top: 50px;
+  vertical-align: middle;
+  font-size: 12px;
+}
+
+.secure img {
+  margin-bottom: -0.3em;
+  border: 0;
+}
+
+.secure a, .secure a:hover, .secure a:visited, .secure a:active {
+  color: #000;
+  text-decoration: none;
+}

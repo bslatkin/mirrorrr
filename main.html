@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+  <title>mirror - ɹoɹɹıɯ</title>
+  <link rel="stylesheet" href="static/base.2.css" type="text/css" charset="utf-8"/>
+  <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon" />
+  <script type="text/javascript" charset="utf-8">
+    var activeColor = "#000000";
+    var disabledColor = "#959595";
+    var defaultValue = "type url here...";
+    
+    function loadBox() {
+      var box = document.getElementById("url_entry");
+      if (box.value != defaultValue) {
+        box.style.color = activeColor;
+      }
+    }
+    
+    function focusBox() {
+      var box = document.getElementById("url_entry");
+      if (box.value == defaultValue) {
+        box.value = "";
+        box.style.color = activeColor;
+      }
+    }
+    
+    function blurBox() {
+      var box = document.getElementById("url_entry");
+      if (box.value == "") {
+        box.style.color = disabledColor;
+        box.value = defaultValue;
+      }
+    }
+  </script>
+</head>
+<body onload="loadBox();">
+
+<div id="wrapper">
+<div id="container">
+
+<div id="header">
+  <span>mıɾɾoɾ</span><span>ɿoɿɿim</span>
+</div>
+
+<div id="form_wrapper">
+  <form action="" method="get" accept-charset="utf-8">
+  <div id="input_wrapper">
+    <span id="http_prefix">http://</span><input onfocus="focusBox();" onblur="blurBox();" type="text" name="url" value="type url here..." id="url_entry"/><input id="go_button" type="submit" value="Go"/>
+  </div>
+  </form>
+
+  <div id="warning">
+  Fair use: All content belongs to the original copyright holders, respectively.
+  </div>
+</div>
+
+<div id="recent">
+  <div class="header">recent</div>
+  <div id="recent_entries">
+    {% for entry in latest_urls %}
+    <div class="url_container">
+      <span class="url"><a class="url{{forloop.counter}}" rel="nofollow" href="/{{entry.translated_address}}">{% if entry.display_address %}{{entry.display_address}}{% else %}{{entry.translated_address}}{% endif %}</a></span>
+      <span class="info url{{forloop.counter}}">{{entry.last_updated|timesince}} ago</span>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="secure">
+  {% if secure_url %}<a href="{{secure_url}}">{% endif %}<img src="/static/{% if secure_url %}no{% endif %}lock.png" width="16" height="16"> {% if secure_url %}not secure</a>{% else %}secure{% endif %}
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1725949-3");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</body>
+</html>
