@@ -3,3 +3,12 @@ Google App Engine app that Mirrors the content of URLs you supply. Rewrites the 
 For POST support and other features, see mirrorrr-plus:
 
 https://code.google.com/p/mirrorrr-plus/
+
+
+
+Python 2.5 runtime is deprecated since March 8, 2013.
+http://googleappengine.blogspot.com/2013/03/python-25-thanks-for-good-times.html
+
+This is a modified version to support Python 2.7 runtime. You will not get any warning or error while deploying.
+
+Enjoy!

@@ -27,7 +27,7 @@ import wsgiref.handlers
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 from google.appengine.ext import db
-from google.appengine.ext import webapp
+import webapp2
 from google.appengine.ext.webapp import template
 from google.appengine.runtime import apiproxy_errors
 
@@ -173,7 +173,7 @@ class MirroredContent(object):
 
 ################################################################################
 
-class BaseHandler(webapp.RequestHandler):
+class BaseHandler(webapp2.RequestHandler):
   def get_relative_url(self):
     slash = self.request.url.find("/", len(self.request.scheme + "://"))
     if slash == -1:
@@ -278,19 +278,19 @@ class MirrorHandler(BaseHandler):
     self.response.out.write(content.data)
 
 
-class AdminHandler(webapp.RequestHandler):
+class AdminHandler(webapp2.RequestHandler):
   def get(self):
     self.response.headers['content-type'] = 'text/plain'
     self.response.out.write(str(memcache.get_stats()))
 
 
-class KaboomHandler(webapp.RequestHandler):
+class KaboomHandler(webapp2.RequestHandler):
   def get(self):
     self.response.headers['content-type'] = 'text/plain'
     self.response.out.write('Flush successful: %s' % memcache.flush_all())
 
 
-class CleanupHandler(webapp.RequestHandler):
+class CleanupHandler(webapp2.RequestHandler):
   """Cleans up EntryPoint records."""
 
   def get(self):
@@ -317,7 +317,7 @@ class CleanupHandler(webapp.RequestHandler):
 
 ################################################################################
 
-app = webapp.WSGIApplication([
+app = webapp2.WSGIApplication([
   (r"/", HomeHandler),
   (r"/main", HomeHandler),
   (r"/kaboom", KaboomHandler),
@@ -325,11 +325,3 @@ app = webapp.WSGIApplication([
   (r"/cleanup", CleanupHandler),
   (r"/([^/]+).*", MirrorHandler)
 ], debug=DEBUG)
-
-
-def main():
-  wsgiref.handlers.CGIHandler().run(app)
-
-
-if __name__ == "__main__":
-  main()
