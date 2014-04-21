@@ -10,14 +10,14 @@
     var activeColor = "#000000";
     var disabledColor = "#959595";
     var defaultValue = "type url here...";
-    
+
     function loadBox() {
       var box = document.getElementById("url_entry");
       if (box.value != defaultValue) {
         box.style.color = activeColor;
       }
     }
-    
+
     function focusBox() {
       var box = document.getElementById("url_entry");
       if (box.value == defaultValue) {
@@ -25,7 +25,7 @@
         box.style.color = activeColor;
       }
     }
-    
+
     function blurBox() {
       var box = document.getElementById("url_entry");
       if (box.value == "") {
@@ -53,18 +53,6 @@
 
   <div id="warning">
   Fair use: All content belongs to the original copyright holders, respectively.
-  </div>
-</div>
-
-<div id="recent">
-  <div class="header">recent</div>
-  <div id="recent_entries">
-    {% for entry in latest_urls %}
-    <div class="url_container">
-      <span class="url"><a class="url{{forloop.counter}}" rel="nofollow" href="/{{entry.translated_address}}">{% if entry.display_address %}{{entry.display_address}}{% else %}{{entry.translated_address}}{% endif %}</a></span>
-      <span class="info url{{forloop.counter}}">{{entry.last_updated|timesince}} ago</span>
-    </div>
-    {% endfor %}
   </div>
 </div>
 

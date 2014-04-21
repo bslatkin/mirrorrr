@@ -1,8 +1,19 @@
-application: yourappid
-version: secureable
+application: your-app-id-here
+version: first
+module: default
 runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: yes
+
+inbound_services:
+- warmup
+
+instance_class: F1
+automatic_scaling:
+  max_idle_instances: automatic
+  min_pending_latency: automatic
+  max_pending_latency: 500ms
+  max_concurrent_requests: 30
 
 handlers:
 
