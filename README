@@ -1,6 +1,0 @@
-Python 2.5 runtime is deprecated since March 8, 2013.
-http://googleappengine.blogspot.com/2013/03/python-25-thanks-for-good-times.html
-
-I fork the original version in order to support Python 2.7 runtime. You will not get any warning or error while deploying.
-
-Enjoy!
