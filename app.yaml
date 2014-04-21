@@ -10,10 +10,9 @@ inbound_services:
 
 instance_class: F1
 automatic_scaling:
-  max_idle_instances: automatic
-  min_pending_latency: automatic
-  max_pending_latency: 500ms
-  max_concurrent_requests: 30
+  min_idle_instances: 1
+  max_idle_instances: 1
+  max_concurrent_requests: 40
 
 handlers:
 
