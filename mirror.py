@@ -146,7 +146,7 @@ class MirroredContent(object):
 
 ###############################################################################
 
-class WarmupHandler(webapp.RequestHandler):
+class WarmupHandler(webapp2.RequestHandler):
   def get(self):
     pass
 
