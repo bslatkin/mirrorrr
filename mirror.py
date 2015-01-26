@@ -64,7 +64,7 @@ TRANSFORMED_CONTENT_TYPES = frozenset([
   "text/css",
 ])
 
-MAX_CONTENT_SIZE = 10 ** 6
+MAX_CONTENT_SIZE = 10 ** 6 - 600
 
 ###############################################################################
 
@@ -126,11 +126,6 @@ class MirroredContent(object):
                                                      content)
         break
 
-    # If the transformed content is over 1MB, truncate it (yikes!)
-    if len(content) > MAX_CONTENT_SIZE:
-      logging.warning("Content is over 1MB; truncating")
-      content = content[:MAX_CONTENT_SIZE]
-
     new_content = MirroredContent(
       base_url=base_url,
       original_address=mirrored_url,
@@ -138,9 +133,14 @@ class MirroredContent(object):
       status=response.status_code,
       headers=adjusted_headers,
       data=content)
-    if not memcache.add(key_name, new_content, time=EXPIRATION_DELTA_SECONDS):
-      logging.error('memcache.add failed: key_name = "%s", '
-                    'original_url = "%s"', key_name, mirrored_url)
+
+    # Do not memcache content over 1MB
+    if len(content) < MAX_CONTENT_SIZE:
+      if not memcache.add(key_name, new_content, time=EXPIRATION_DELTA_SECONDS):
+        logging.error('memcache.add failed: key_name = "%s", '
+                      'original_url = "%s"', key_name, mirrored_url)
+    else:
+      logging.warning("Content is over 1MB; not memcached")
 
     return new_content
 
