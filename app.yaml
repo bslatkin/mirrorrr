@@ -15,7 +15,6 @@ automatic_scaling:
   max_concurrent_requests: 40
 
 handlers:
-
 - url: /robots\.txt
   static_files: static/robots.txt
   upload: static/robots\.txt
@@ -25,27 +24,11 @@ handlers:
   upload: static/favicon\.ico
   secure: optional
 
-- url: /static/base(\.[0-9])\.css
-  static_files: static/base.css
-  upload: static/base\.css
-  secure: optional
-
 - url: /static
   static_dir: static
   secure: optional
 
-- url: /admin
-  login: admin
-  script: mirror.app
-  secure: optional
-
-- url: /cleanup
-  login: admin
-  script: mirror.app
-  secure: optional
-
-- url: /kaboom
-  login: admin
+- url: /_ah/warmup
   script: mirror.app
   secure: optional
 
