@@ -18,7 +18,6 @@ __author__ = "Brett Slatkin (bslatkin@gmail.com)"
 import datetime
 import hashlib
 import logging
-import pickle
 import re
 import time
 import urllib
@@ -26,7 +25,6 @@ import wsgiref.handlers
 
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
-from google.appengine.ext import db
 import webapp2
 from google.appengine.ext.webapp import template
 from google.appengine.runtime import apiproxy_errors
